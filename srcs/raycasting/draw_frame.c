@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 04:38:19 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/27 05:35:33 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/29 09:19:09 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	draw_frame(void *param)
 			frame.draw_start = 0;
 		if (frame.draw_end >= HEIGHT)
 			frame.draw_end = HEIGHT - 1;
-		(put_textured_line(g, col, &frame), col++);
+		(put_textured_line(g, col, &frame, 0), col++);
 	}
 	mini_map(g);
 }

@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 03:25:38 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/27 04:48:12 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/29 09:18:25 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_game {
 	int			height;
 	t_player	player;
 	t_ray		ray;
+	int			tex_x;
 	mlx_texture_t *no_tex;
 	mlx_texture_t *so_tex;
 	mlx_texture_t *we_tex;

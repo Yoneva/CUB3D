@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 18:52:50 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/18 06:46:11 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/11/29 09:16:21 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int main(int ac, char **av)
 	if (!configs.map)
 		return (0);
 	start_game(&configs);
+	freeing(&configs, 1);
 	return (0);
 }

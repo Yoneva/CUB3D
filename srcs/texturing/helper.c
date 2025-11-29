@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 08:02:10 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/27 22:00:12 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/29 09:18:48 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ void	texturizing(t_textures *mlx, t_game *g)
 
 uint32_t	get_tex_pixel(mlx_texture_t *tex, int x, int y)
 {
-	int	i;
-	
+	int		i;
+	uint8_t	r;
+	uint8_t	g;
+	uint8_t	b;
+	uint8_t	a;
+
 	i = (y * tex->width + x) * 4;
-	uint8_t r = tex->pixels[i + 0];
-	uint8_t g = tex->pixels[i + 1];
-	uint8_t b = tex->pixels[i + 2];
-	uint8_t a = tex->pixels[i + 3];
+	r = tex->pixels[i + 0];
+	g = tex->pixels[i + 1];
+	b = tex->pixels[i + 2];
+	a = tex->pixels[i + 3];
 	return (r << 24 | g << 16 | b << 8 | a);
 }
