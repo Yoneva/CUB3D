@@ -6,12 +6,12 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 18:52:50 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/29 09:16:21 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/30 17:53:17 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/parsing.h"
-#include "../includes/raycasting.h"
+#include "../../includes/parsing.h"
+#include "../../includes/raycasting.h"
 
 void	check_input(char *str)
 {
@@ -31,11 +31,17 @@ void	check_input(char *str)
 	}
 }
 
-int main(int ac, char **av)
+void ll()
+{
+	system("leaks -q cub3d");
+}
+
+int	main(int ac, char **av)
 {
 	t_configs	configs;
 	int			i;
-	
+
+	atexit(ll);
 	if (ac != 2)
 		return (write(1, "Arguments!!'-'\n", 15), 1);
 	check_input(av[1]);
@@ -45,7 +51,7 @@ int main(int ac, char **av)
 	configs.texture = malloc(sizeof(t_textures));
 	configs.texture->flags = malloc(sizeof(t_text_flags));
 	if (!configs.texture || !configs.texture->flags)
-		return(perror("malloc"),free(configs.texture->flags)
+		return (perror("malloc"),free(configs.texture->flags)
 			, free(configs.texture), 1);
 	configs.file = get_file(configs.fd);
 	i = parse_texture(&configs);

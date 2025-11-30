@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture.h                                          :+:      :+:    :+:   */
+/*   count_word_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 02:18:40 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/29 09:50:55 by amsbai           ###   ########.fr       */
+/*   Created: 2025/11/30 18:02:21 by amsbai            #+#    #+#             */
+/*   Updated: 2025/11/30 18:02:35 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEXTURE_H
-# define TEXTURE_H
+#include "../../../../includes/parsing.h"
 
-# include "raycasting.h"
+int	count_word(char *input)
+{
+	int	i;
+	int	count;
+	int	find;
 
-//TEXTURES
-bool	texturizing(t_textures *mlx, t_game *texture);
-void	    put_textured_line(t_game *g, int x, t_frame *f, int y);
-uint32_t	get_tex_pixel(mlx_texture_t *tex, int x, int y);
-
-#endif
+	i = 0;
+	count = 0;
+	find = 0;
+	while (input[i] != '\0')
+	{
+		if (input[i] == '\t' || input[i] == 32)
+		{
+			find = 0;
+		}
+		else if (input[i] != '\t' && input[i] != 32)
+		{
+			if (find == 0)
+			{
+				count++;
+				find = 1;
+			}
+		}
+		i++;
+	}
+	return (count);
+}

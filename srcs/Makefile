@@ -1,49 +1,63 @@
 CC = cc
 NAME = cub3d
+BONUS_NAME= cub3d_bonus
 
-SRC = main.c \
-	parsing/parsing.c parsing/parse_map.c parsing/parse_texture.c \
-	parsing/Utils/ft_realloc.c parsing/Utils/count_word.c parsing/Utils/rectangle_map.c parsing/Utils/parse_texture_utils.c \
-	raycasting/raycasting.c raycasting/keys_event.c raycasting/cast_ray.c raycasting/draw_frame.c raycasting/intersections.c raycasting/player_pos.c \
-	raycasting/utils.c raycasting/mini_map.c  texturing/textures.c  texturing/helper.c \
-	../libs/get_next_line/get_next_line.c ../libs/get_next_line/get_next_line_utils.c
-OBJ = $(SRC:.c=.o)
+BUILD_DIR= build
+
+SRC = $(shell find mandatory -type f -name "*.c")
+OBJ = $(addprefix $(BUILD_DIR)/, $(SRC:.c=.o))  #$(SRC:.c=.o)
+
+BONUS_SRC= $(shell find bonus -type f -name "*.c")
+BONUS_OBJ= $(addprefix $(BUILD_DIR)/, $(BONUS_SRC:.c=.o))
+
+HEADERS= $(shell find ../includes -type f -name "*.h" )
 
 HEADER_DIR = ../includes
 
-LIBFT = ../libs/Libft/libft.a
+LIBFT_DIR= ../libs/Libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
 MLX_DIR = ../libs/MLX42
-MLX_INC = $(MLX_DIR)/include
 MLX_LIB = $(MLX_DIR)/build/libmlx42.a
 
 CFLAGS = -Wall -Wextra -Werror 
 LDFLAGS = -L$(shell brew --prefix)/opt/glfw/lib
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 
-INC = -I$(HEADER_DIR) -I$(MLX_INC) -I../libs/Libft -I../libs/get_next_line
+INC = -I$(HEADER_DIR) -I$(MLX_DIR)/include -I../libs/Libft
 
-all: $(NAME)
+all: $(BUILD_DIR) $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
+bonus: $(BUILD_DIR) $(BONUS_NAME)
+
+$(BUILD_DIR):
+	@mkdir -p $(BUILD_DIR)
+
+$(NAME): $(OBJ) $(LIBFT) $(MLX_LIB) $(HEADERS)
 	$(CC) $(OBJ) $(LIBFT) $(MLX_LIB) -lglfw $(FRAMEWORKS) $(LDFLAGS) -o $(NAME)
 
-%.o: %.c ../includes/raycasting.h ../includes/parsing.h
+$(BONUS_NAME): $(BONUS_OBJ) $(LIBFT) $(MLX_LIB) $(HEADERS)
+	$(CC) $(BONUS_OBJ) $(LIBFT) $(MLX_LIB) -lglfw $(FRAMEWORKS) $(LDFLAGS) -o $(BONUS_NAME)
+
+$(BUILD_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(LIBFT):
-	$(MAKE) -C ../libs/Libft
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(MLX_LIB):
 	cmake -S $(MLX_DIR) -B $(MLX_DIR)/build -DCMAKE_PREFIX_PATH="$(HOME)/.brew;/opt/homebrew"
 	cmake --build $(MLX_DIR)/build -j4
 
 clean:
-	rm -f $(OBJ)
-	$(MAKE) -C ../libs/Libft clean
+	rm -rf $(BUILD_DIR)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C ../libs/Libft fclean
+	rm -f $(BONUS_NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

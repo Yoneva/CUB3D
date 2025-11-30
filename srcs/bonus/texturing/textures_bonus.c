@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures.c                                         :+:      :+:    :+:   */
+/*   textures_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:58:39 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/29 09:18:31 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/30 17:56:03 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/texture.h"
-#include "../../includes/parsing.h"
+#include "../../../includes/texture.h"
+#include "../../../includes/parsing.h"
 
 //chose what texture is needed
 mlx_texture_t	*w_texture(t_frame *f, t_game *g)

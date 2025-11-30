@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_realloc_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:37:24 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/18 05:21:03 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:03:41 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/parsing.h"
-
+#include "../../../../includes/parsing.h"
 
 void	*ft_realloc(void *str, size_t newsize)
 {

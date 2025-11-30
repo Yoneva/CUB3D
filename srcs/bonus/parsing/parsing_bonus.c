@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 17:13:09 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/18 05:20:52 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:02:00 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
-
+#include "../../../includes/parsing.h"
 
 void	error_message(char **arr, int n)
 {
@@ -37,7 +36,7 @@ char	**get_file(int fd)
 	int		len;
 	int		size;
 	char	**arr;
-	
+
 	i = 0;
 	size = 1;
 	arr = malloc(size * sizeof(char *));

@@ -6,14 +6,14 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 08:02:10 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/29 09:18:48 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/30 17:53:46 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/texture.h"
-#include "../../includes/parsing.h"
+#include "../../../includes/texture.h"
+#include "../../../includes/parsing.h"
 
-void	texturizing(t_textures *mlx, t_game *g)
+bool	texturizing(t_textures *mlx, t_game *g)
 {
 	g->no_tex = mlx_load_png(mlx->n_texture);
 	g->we_tex = mlx_load_png(mlx->w_texture);
@@ -22,8 +22,13 @@ void	texturizing(t_textures *mlx, t_game *g)
 	if (!g->no_tex || !g->we_tex
 		|| !g->ea_tex || !g->so_tex)
 	{
-		exit(1);
+		mlx_delete_texture(g->no_tex);
+		mlx_delete_texture(g->we_tex);
+		mlx_delete_texture(g->ea_tex);
+		mlx_delete_texture(g->so_tex);
+		return (false);
 	}
+	return (true);
 }
 
 uint32_t	get_tex_pixel(mlx_texture_t *tex, int x, int y)

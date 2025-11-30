@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 21:58:37 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/27 05:36:32 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/29 05:05:01 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	start_game(t_configs *configs)
 	mlx_key_hook(g->mlx, keys_event, g);
 	mlx_loop_hook(g->mlx, draw_frame, g);
 	mlx_loop(g->mlx);
-	mlx_delete_image(g->mlx, g->img);
-	mlx_terminate(g->mlx);
+	(mlx_delete_image(g->mlx, g->img), mlx_terminate(g->mlx));
 	(free_map(g->map), free(g));
 }

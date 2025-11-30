@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_texture_utils.c                              :+:      :+:    :+:   */
+/*   parse_texture_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:41:25 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/18 05:21:06 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:03:35 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/parsing.h"
-
+#include "../../../../includes/parsing.h"
 
 static int	rgb_to_int(int r, int g, int b)
 {
@@ -27,7 +26,7 @@ bool	check_coma(char *str)
 
 	i = 0;
 	coma = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] == ',')
 			coma++;

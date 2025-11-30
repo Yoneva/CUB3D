@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   parse_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:38:37 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/27 05:35:59 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/11/30 18:01:24 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
+#include "../../../includes/parsing.h"
 
 int	max_window(int width, int length)
 {
@@ -29,7 +29,8 @@ int	check_letters(char **map, int i, int j)
 		i = 0;
 		while (map[j][i])
 		{
-			if (map[j][i] == 'N' || map[j][i] == 'S' || map[j][i] == 'E' || map[j][i] == 'W')
+			if (map[j][i] == 'N' || map[j][i] == 'S' || map[j][i] == 'E' ||
+				map[j][i] == 'W')
 				player += 1;
 			else if (map[j][i] == '1' || map[j][i] == '0' || map[j][i] == ' ')
 			{
@@ -52,17 +53,19 @@ int	if_walls(char **rect_map, int size, int i, int j)
 	while (rect_map[i])
 	{
 		j = 0;
-		while(rect_map[i][j])
+		while (rect_map[i][j])
 		{
-			if (i == 0 && rect_map[i][j] != '1' && rect_map[i][j]!= ' ')
+			if (i == 0 && rect_map[i][j] != '1' && rect_map[i][j] != ' ')
 				return (error_message(rect_map, -1), 0);
-			else if ( i == (size - 1) && rect_map[i][j] != '1' && rect_map[i][j] != ' ')
-					return (error_message(rect_map, -1), 0);
+			else if (i == (size - 1) && rect_map[i][j] != '1' &&
+				rect_map[i][j] != ' ')
+				return (error_message(rect_map, -1), 0);
 			else if (rect_map[i][j] == '0')
 			{
 				if (rect_map[i - 1][j] == ' ' || rect_map[i + 1][j] == ' ') 
 					return (error_message(rect_map, -1), 0);
-				else if (rect_map[i][j + 1] == ' ' || rect_map[i][j + 1] == '\0')
+				else if (rect_map[i][j + 1] == ' ' ||
+					rect_map[i][j + 1] == '\0')
 					return (error_message(rect_map, -1), 0);
 				else if (rect_map[i][j - 1] == ' ' || j == 0)
 					return (error_message(rect_map, -1), 0);
@@ -78,11 +81,13 @@ char	**parse_map(t_configs *configs, char **file)
 {
 	int		i;
 	char	**map;
-	int		max_len = 0;
-	int		size = 0;
+	int		max_len;
+	int		size ;
 	char	**rect_map;
-	
+
 	i = 0;
+	size = 0;
+	max_len = 0;
 	while (file[i][0] == '\0')
 		i++;
 	map = file + i;

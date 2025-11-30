@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   count_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 21:15:35 by amsbai            #+#    #+#             */
-/*   Updated: 2025/09/09 17:03:22 by amsbai           ###   ########.fr       */
+/*   Created: 2025/11/30 17:02:45 by amsbai            #+#    #+#             */
+/*   Updated: 2025/11/30 17:03:09 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../../../../includes/parsing.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
-# endif
+int	count_word(char *input)
+{
+	int	i;
+	int	count;
+	int	find;
 
-# include <unistd.h>
-# include "../Libft/libft.h"
-# include <stdlib.h>
-
-char	*get_next_line(int fd);
-char	*tabs_to_spaces(const char *str, int i, int j);
-char	*ft_strjoinN(char *s1, char *s2);
-
-#endif
+	i = 0;
+	count = 0;
+	find = 0;
+	while (input[i] != '\0')
+	{
+		if (input[i] == '\t' || input[i] == 32)
+		{
+			find = 0;
+		}
+		else if (input[i] != '\t' && input[i] != 32)
+		{
+			if (find == 0)
+			{
+				count++;
+				find = 1;
+			}
+		}
+		i++;
+	}
+	return (count);
+}
