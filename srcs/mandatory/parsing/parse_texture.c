@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 21:34:49 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:49:19 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/01 18:46:31 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*rm_spaces(char *input)
 	i = 0;
 	while (input[i] == ' ')
 		i++;
-	return (input + i);
+	return (ft_strdup(input + i));
 }
 
 char	**fill_texture_array(t_configs *configs, int *i_out)
@@ -58,7 +58,7 @@ char	**fill_texture_array(t_configs *configs, int *i_out)
 
 	i = 0;
 	j = 0;
-	info = malloc(7 * sizeof(char *));
+	info = ft_calloc(7, sizeof(char *));
 	while (configs->file[i] && j < 6)
 	{
 		if (configs->file[i][0] == '\0')
@@ -66,9 +66,9 @@ char	**fill_texture_array(t_configs *configs, int *i_out)
 			i++;
 			continue ;
 		}
-		info[j] = ft_strdup(rm_spaces(configs->file[i]));
+		info[j] = rm_spaces(configs->file[i]);
 		if (count_word(info[j]) != 2)
-			(freeing(configs, 0), error_message(info, 1));
+			return (error_message(info, 1), freeing(configs, 0), NULL);
 		i++;
 		j++;
 	}
@@ -85,18 +85,20 @@ int	parse_texture(t_configs *configs)
 
 	i = 0;
 	j = 0;
-	configs->texture->flags->NO = 0;
-	configs->texture->flags->SO = 0;
-	configs->texture->flags->WE = 0;
-	configs->texture->flags->EA = 0;
-	configs->texture->flags->F = 0;
-	configs->texture->flags->C = 0;
+	configs->texture->flags->no = 0; 
+	configs->texture->flags->so = 0;
+	configs->texture->flags->we = 0;
+	configs->texture->flags->ea = 0;
+	configs->texture->flags->f = 0;
+	configs->texture->flags->c = 0;
 	info = fill_texture_array(configs, &i);
+	if (!info)
+		return (-1);
 	if (!check_lines(info, configs, -1) || !check_colors(configs))
 	{
 		perror("unvalide texture");
 		freeing(configs, 1);
-		exit (0);
+		return (-1);
 	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 17:13:09 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:02:26 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/01 15:58:25 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	error_message(char **arr, int n)
 	if (n == 1)
 	{
 		write(1, "Error!\n", 7);
-		exit (1);
+		return ;
 	}
 }
 

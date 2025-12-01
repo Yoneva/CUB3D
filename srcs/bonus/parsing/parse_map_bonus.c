@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:38:37 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 18:01:24 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/01 18:23:08 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,25 @@ int	if_walls(char **rect_map, int size, int i, int j)
 		while (rect_map[i][j])
 		{
 			if (i == 0 && rect_map[i][j] != '1' && rect_map[i][j] != ' ')
-				return (error_message(rect_map, -1), 0);
+				return (0);
 			else if (i == (size - 1) && rect_map[i][j] != '1' &&
 				rect_map[i][j] != ' ')
-				return (error_message(rect_map, -1), 0);
+				return (0);
 			else if (rect_map[i][j] == '0')
 			{
 				if (rect_map[i - 1][j] == ' ' || rect_map[i + 1][j] == ' ') 
-					return (error_message(rect_map, -1), 0);
+					return (0);
 				else if (rect_map[i][j + 1] == ' ' ||
 					rect_map[i][j + 1] == '\0')
-					return (error_message(rect_map, -1), 0);
+					return (0);
 				else if (rect_map[i][j - 1] == ' ' || j == 0)
-					return (error_message(rect_map, -1), 0);
+					return (0);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (error_message(rect_map, -1), 1);
+	return (1);
 }
 
 char	**parse_map(t_configs *configs, char **file)
@@ -97,7 +97,8 @@ char	**parse_map(t_configs *configs, char **file)
 		|| !max_window(max_len, size))
 	{
 		perror("unvalid map");
-		return (freeing(configs, 1), NULL);
+		return (freeing(configs, 1), error_message(rect_map, 0), NULL);
 	}
+	error_message(rect_map, 0);
 	return (map);
 }
