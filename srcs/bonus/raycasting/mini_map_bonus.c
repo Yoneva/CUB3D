@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_map.c                                         :+:      :+:    :+:   */
+/*   mini_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 05:37:15 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/27 05:46:44 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/03 02:39:12 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
-#include "../../includes/parsing.h"
+#include "raycasting.h"
+#include "parsing.h"
 
 void	draw_map(t_game *g, t_map *map, int i)
 {
@@ -26,8 +26,8 @@ void	draw_map(t_game *g, t_map *map, int i)
 			map->color = 0xFFB6C1FF;
 		else
 			map->color = 0x00000000;
-		map->px = 10 + j * map->tile;
-		map->py = 10 + i * map->tile;
+		map->px = 8 + j * map->tile;
+		map->py = 8 + i * map->tile;
 		y = 0;
 		while (y < map->tile)
 		{
@@ -48,12 +48,12 @@ void	player_in_mini_map(t_game *g, t_map *map)
 	int	i;
 	int	j;
 
-	ppx = 8 + (int)(g->player.x * map->tile);
-	ppy = 8 + (int)(g->player.y * map->tile);
-	i = -1;
+	ppx = 10 + (int)(g->player.x * map->tile);
+	ppy = 10 + (int)(g->player.y * map->tile);
+	i = -2;
 	while (i <= 2)
 	{
-		j = -1;
+		j = -2;
 		while (j <= 2)
 			(mlx_put_pixel(g->img, ppx + i, ppy + j, 0xFF66BEFF), j++);
 		i++;

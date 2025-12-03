@@ -1,13 +1,12 @@
-NO /Users/amsbai/Desktop/cube/cub3D/textures/wp13734161.png
-WE /Users/amsbai/Desktop/cube/cub3D/textures/pngegg.png
-EA /Users/amsbai/Desktop/cube/cub3D/textures/pngegg.png
-SO /Users/amsbai/Desktop/cube/cub3D/textures/wp13734161.png
+NO /Users/amsbai/Desktop/pushed/textures/pngegg.png
+WE /Users/amsbai/Desktop/pushed/textures/pngegg.png
+SO /Users/amsbai/Desktop/pushed/textures/pngegg.png
+EA /Users/amsbai/Desktop/pushed/textures/pngegg.png
+
 F 220,100,0
 C 225,30,0
 
-11111111
-10000001
-100N0001
-10000001
-10000001
-11111111
+111
+1N01
+1001
+11

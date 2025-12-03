@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 04:43:28 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/25 05:29:19 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/12/02 17:54:41 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
-#include "../../includes/parsing.h"
+#include "raycasting.h"
+#include "parsing.h"
 
 void	free_map(char **map)
 {
@@ -27,9 +27,8 @@ void	free_map(char **map)
 
 void	closing_error(t_game *g)
 {
-	free_map(g->map);
-	free(g);
 	mlx_close_window(g->mlx);
+	free(g);
 	printf("%s\n", mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
 }

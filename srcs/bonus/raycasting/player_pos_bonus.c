@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_pos.c                                       :+:      :+:    :+:   */
+/*   player_pos_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 04:40:33 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/25 05:31:37 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:37:14 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
-#include "../../includes/parsing.h"
+#include "raycasting.h"
+#include "parsing.h"
 
 // rotation matrix :
 // x' = x cos(a) - y sin(a)

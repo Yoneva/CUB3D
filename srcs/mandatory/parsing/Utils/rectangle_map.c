@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rectangle_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 17:09:25 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:50:15 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 11:38:06 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../includes/parsing.h"
+#include "parsing.h"
 
 void	counting(char **map, int *rows, int *max_len)
 {

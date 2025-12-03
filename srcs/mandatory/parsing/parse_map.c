@@ -6,11 +6,11 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:38:37 by amsbai            #+#    #+#             */
-/*   Updated: 2025/12/01 18:17:44 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/03 15:30:44 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/parsing.h"
+#include "parsing.h"
 
 int	max_window(int width, int length)
 {
@@ -62,8 +62,8 @@ int	if_walls(char **rect_map, int size, int i, int j)
 				return (0);
 			else if (rect_map[i][j] == '0')
 			{
-				if (rect_map[i - 1][j] == ' ' || rect_map[i + 1][j] == ' ') 
-					return (0);
+				if (rp[i - 1][j] == ' ' || rp[i + 1][j] == ' '|| rp[i - 1][j] == '\n'|| rp[i + 1][j] == '\n'|| rp[i + 1][j] == 0|| rp[i + 1][j] == 0) 
+						return (0);
 				else if (rect_map[i][j + 1] == ' ' ||
 					rect_map[i][j + 1] == '\0')
 					return (0);
@@ -88,7 +88,7 @@ char	**parse_map(t_configs *configs, char **file)
 	i = 0;
 	size = 0;
 	max_len = 0;
-	while (file[i][0] == '\0')
+	while (file[i] && file[i][0] == '\0')
 		i++;
 	map = file + i;
 	counting(map, &size, &max_len);

@@ -6,12 +6,12 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 21:58:37 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/29 10:16:01 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/03 02:57:33 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
-#include "../../includes/texture.h"
+#include "raycasting.h"
+#include "texture.h"
 
 void	position(t_player *player, int dirx, int diry)
 {
@@ -74,6 +74,8 @@ int	init_everything(t_game *g, t_configs *configs)
 		free(g);
 		return (0);
 	}
+	g->c_col = configs->texture->c_color;
+	g->f_col = configs->texture->f_color;
 	g->map = rect;
 	g->player.x = (double)WIDTH / 2;
 	g->player.y = (double)HEIGHT / 2;
@@ -89,29 +91,21 @@ void	start_game(t_configs *configs)
 	if (!g)
 		return ;
 	g->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", false);
-	if (!g)
-	{
-		free(g);
-		(printf("%s\n", mlx_strerror(mlx_errno)), exit(EXIT_FAILURE));
-	}
+	if (!g->mlx)
+		(free(g), printf("%s\n", mlx_strerror(mlx_errno)), exit(EXIT_FAILURE));
 	if (!texturizing(configs->texture, g))
-		return;
+		return (closing_error(g));
 	g->img = mlx_new_image(g->mlx, WIDTH, HEIGHT);
-	if (!g)
+	if (!g->img)
 		closing_error(g);
 	if (mlx_image_to_window(g->mlx, g->img, 0, 0) == -1)
 		closing_error(g);
 	if (!init_everything(g, configs))
 		closing_error(g);
-	init_keys(&g->player.key);
-	mlx_key_hook(g->mlx, keys_event, g);
-	mlx_loop_hook(g->mlx, draw_frame, g);
-	mlx_loop(g->mlx);
-	mlx_delete_image(g->mlx, g->img);
-	mlx_delete_texture(g->no_tex);
-	mlx_delete_texture(g->we_tex);
-	mlx_delete_texture(g->ea_tex);
-	mlx_delete_texture(g->so_tex);
+	(init_keys(&g->player.key), mlx_key_hook(g->mlx, keys_event, g));
+	(mlx_loop_hook(g->mlx, draw_frame, g), mlx_loop(g->mlx));
+	(mlx_delete_image(g->mlx, g->img), mlx_terminate(g->mlx));
+	(mlx_delete_texture(g->no_tex), mlx_delete_texture(g->we_tex));
+	(mlx_delete_texture(g->ea_tex), mlx_delete_texture(g->so_tex));
 	(free_map(g->map), free(g));
-	mlx_terminate(g->mlx);
 }

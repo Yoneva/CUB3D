@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 16:52:28 by amsbai            #+#    #+#             */
-/*   Updated: 2025/12/01 18:03:02 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 11:38:00 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../includes/parsing.h"
+#include "parsing.h"
 
 int	check_lines3(char *input, t_configs *configs)
 {

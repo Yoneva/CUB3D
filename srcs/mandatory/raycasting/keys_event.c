@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   keys_event.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 04:29:03 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/29 10:15:30 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 11:38:53 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
+#include "raycasting.h"
 
 void	key_press(mlx_key_data_t keycode, t_key *key)
 {

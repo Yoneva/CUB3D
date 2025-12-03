@@ -6,11 +6,11 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 17:13:09 by amsbai            #+#    #+#             */
-/*   Updated: 2025/12/01 18:23:34 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 17:53:37 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/parsing.h"
+#include "parsing.h"
 
 void	error_message(char **arr, int n)
 {
@@ -25,7 +25,7 @@ void	error_message(char **arr, int n)
 	free (arr);
 	if (n == 1)
 	{
-		write(1, "Error!\n", 7);
+		perror("Error");
 		return ;
 	}
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys_event.c                                       :+:      :+:    :+:   */
+/*   keys_event_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 04:29:03 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/25 07:33:48 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:37:01 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
+#include "raycasting.h"
 
 void	key_press(mlx_key_data_t keycode, t_key *key)
 {

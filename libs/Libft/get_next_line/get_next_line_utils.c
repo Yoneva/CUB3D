@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:46:08 by amsbai            #+#    #+#             */
-/*   Updated: 2025/09/09 17:13:31 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 10:27:27 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoinN(char *s1, char *s2)
+char	*ft_strjoin_2(char *s1, char *s2)
 {
 	size_t	size;
 	size_t	s1_len;
@@ -51,15 +51,14 @@ static int	strlen_tabs(char *str)
 
 char	*tabs_to_spaces(const char *str, int i, int j)
 {
-	int tabs, len;
-	char *res;
+	int		tabs;
+	int		len;
+	char	*res;
 
 	if (!str)
 		return (NULL);
 	len = strlen_tabs((char *)str);
 	res = malloc(len + 1);
-	if (!res)
-		return (NULL);
 	while (str[i])
 	{
 		if (str[i] == '\t')
@@ -75,5 +74,5 @@ char	*tabs_to_spaces(const char *str, int i, int j)
 			res[j++] = str[i];
 		i++;
 	}
-	return ((res[j] = '\0'),res);
+	return ((res[j] = '\0'), res);
 }

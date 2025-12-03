@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parse_texture_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:41:25 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:10:58 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 12:30:40 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../includes/parsing.h"
+#include "parsing.h"
 
-static int	rgb_to_int(int r, int g, int b)
+int	rgb_to_int(int r, int g, int b)
 {
 	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 		return (-1);
-	return ((r << 16) | (g << 8) | b);
+	return ((r << 24) | (g << 16) | (b << 8) | 255);
 }
 
 bool	check_coma(char *str)

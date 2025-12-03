@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:15:35 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:27:48 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 10:25:01 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # endif
 
 # include <unistd.h>
-# include "../libft.h"
 # include <stdlib.h>
+# include "../libft.h"
 
 char	*get_next_line(int fd);
 char	*tabs_to_spaces(const char *str, int i, int j);
-char	*ft_strjoinN(char *s1, char *s2);
+char	*ft_strjoin_2(char *s1, char *s2);
 
 #endif

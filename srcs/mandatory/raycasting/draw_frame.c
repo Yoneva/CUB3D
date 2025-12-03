@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   draw_frame.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 04:38:19 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/29 09:19:09 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 13:03:52 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
-#include "../../includes/texture.h"
+#include "parsing.h"
+#include "texture.h"
 
 void	just_drawing_alittle(t_game *g)
 {
@@ -25,32 +25,12 @@ void	just_drawing_alittle(t_game *g)
 		while (xx < WIDTH)
 		{
 			if (yy < HEIGHT / 2)
-				mlx_put_pixel(g->img, xx, yy, 0x87CEEBFF);
+				mlx_put_pixel(g->img, xx, yy, (uint32_t)g->c_col);
 			else
-				mlx_put_pixel(g->img, xx, yy, 0x444444FF);
+				mlx_put_pixel(g->img, xx, yy, (uint32_t)g->f_col);
 			xx++;
 		}
 		yy++;
-	}
-}
-
-void	put_vert_line(t_game *g, int x, t_frame frame)
-{
-	int	y;
-
-	if (frame.draw_start < 0)
-		frame.draw_start = 0;
-	if (frame.draw_end >= HEIGHT)
-		frame.draw_end = HEIGHT - 1;
-	if (frame.ray.is_hit_vert)
-		frame.color = 0xFFFFFFFF;
-	else
-		frame.color = 0xAAAAAAFF;
-	y = frame.draw_start;
-	while (y <= frame.draw_end)
-	{
-		mlx_put_pixel(g->img, x, y, frame.color);
-		y++;
 	}
 }
 
@@ -73,8 +53,7 @@ void	draw_frame(void *param)
 	int		col;
 
 	g = (t_game *)param;
-	(update_player_pos(g), just_drawing_alittle(g));
-	fill_frame(g, &frame);
+	(update_player_pos(g), just_drawing_alittle(g), fill_frame(g, &frame));
 	col = 0;
 	while (col < WIDTH)
 	{
@@ -83,8 +62,6 @@ void	draw_frame(void *param)
 		frame.ray = cast_ray(g, frame.curr_angle);
 		frame.corr_dist = frame.ray.distance
 			* cos(normalize_angle(frame.curr_angle - frame.player_angle));
-		if (frame.corr_dist <= 0)
-			frame.corr_dist = 1e-30;
 		frame.wall_strip_height = (TILE_SIZE / frame.corr_dist)
 			* frame.distance_proj_plane;
 		frame.draw_start = -(int)frame.wall_strip_height / 2 + HEIGHT / 2;
@@ -95,5 +72,4 @@ void	draw_frame(void *param)
 			frame.draw_end = HEIGHT - 1;
 		(put_textured_line(g, col, &frame, 0), col++);
 	}
-	mini_map(g);
 }

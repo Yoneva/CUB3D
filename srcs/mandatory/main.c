@@ -6,12 +6,12 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 18:52:50 by amsbai            #+#    #+#             */
-/*   Updated: 2025/12/01 18:45:27 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 17:52:04 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
-#include "../../includes/raycasting.h"
+#include "parsing.h"
+#include "raycasting.h"
 
 void	check_input(char *str)
 {
@@ -20,20 +20,15 @@ void	check_input(char *str)
 	len = ft_strlen(str) - 1;
 	if (len <= 3)
 	{
-		write(1, "file is not valid\n", 31);
+		write(1, "Error: file is not valid\n", 25);
 		exit (1);
 	}
-	if (str[len - 4] == '/' || str[len - 3] != '.' || str[len - 2] != 'c' 
+	if (str[len - 4] == '/' || str[len - 3] != '.' || str[len - 2] != 'c'
 		|| str[len - 1] != 'u' || str[len] != 'b')
 	{
-		write(1, "file is not valid\n", 31);
+		write(1, "Error: file is not valid\n", 25);
 		exit (1);
 	}
-}
-
-void ll()
-{
-	system("leaks -q cub3d");
 }
 
 int	main(int ac, char **av)
@@ -41,9 +36,8 @@ int	main(int ac, char **av)
 	t_configs	configs;
 	int			i;
 
-	atexit(ll);
 	if (ac != 2)
-		return (write(1, "Arguments!!'-'\n", 15), 1);
+		return (write(1, "Error: Arguments!!'-'\n", 22), 1);
 	check_input(av[1]);
 	configs.fd = open(av[1], O_RDONLY);
 	if (configs.fd == -1)
@@ -63,5 +57,4 @@ int	main(int ac, char **av)
 	start_game(&configs);
 	freeing(&configs, 1);
 	(free(configs.texture), free(configs.texture->flags));
-	return (0);
 }

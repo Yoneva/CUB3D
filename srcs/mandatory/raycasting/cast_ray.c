@@ -6,12 +6,12 @@
 /*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 04:47:07 by hasbayou          #+#    #+#             */
-/*   Updated: 2025/11/25 05:39:40 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:38:11 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/raycasting.h"
-#include "../../includes/parsing.h"
+#include "raycasting.h"
+#include "parsing.h"
 
 void	init_ray_vars(t_ray *ray, double ray_angle)
 {

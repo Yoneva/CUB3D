@@ -6,12 +6,12 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 08:02:10 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:55:43 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 17:49:41 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/texture.h"
-#include "../../../includes/parsing.h"
+#include "texture.h"
+#include "parsing.h"
 
 bool	texturizing(t_textures *mlx, t_game *g)
 {
@@ -22,10 +22,14 @@ bool	texturizing(t_textures *mlx, t_game *g)
 	if (!g->no_tex || !g->we_tex
 		|| !g->ea_tex || !g->so_tex)
 	{
-		mlx_delete_texture(g->no_tex);
-		mlx_delete_texture(g->we_tex);
-		mlx_delete_texture(g->ea_tex);
-		mlx_delete_texture(g->so_tex);
+		if (g->no_tex)
+			mlx_delete_texture(g->no_tex);
+		if (g->we_tex)
+			mlx_delete_texture(g->we_tex);
+		if (g->ea_tex)
+			mlx_delete_texture(g->ea_tex);
+		if (g->so_tex)
+			mlx_delete_texture(g->so_tex);
 		return (false);
 	}
 	return (true);

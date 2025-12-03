@@ -6,11 +6,11 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 21:34:49 by amsbai            #+#    #+#             */
-/*   Updated: 2025/12/01 18:46:31 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/03 01:10:49 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/parsing.h"
+#include "parsing.h"
 
 void	freeing(t_configs *configs, int check)
 {
@@ -25,17 +25,17 @@ void	freeing(t_configs *configs, int check)
 	free(configs->file);
 	if (check == 1)
 	{
-		if (configs->texture->ceiling_c)
+		if (configs->texture->flags->c > 0)
 			free(configs->texture->ceiling_c);
-		if (configs->texture->floor_c)
+		if (configs->texture->flags->f > 0)
 			free(configs->texture->floor_c);
-		if (configs->texture->s_texture)
+		if (configs->texture->flags->so > 0)
 			free(configs->texture->s_texture);
-		if (configs->texture->w_texture)
+		if (configs->texture->flags->we > 0)
 			free(configs->texture->w_texture);
-		if (configs->texture->e_texture)
+		if (configs->texture->flags->ea > 0)
 			free(configs->texture->e_texture);
-		if (configs->texture->n_texture)
+		if (configs->texture->flags->no > 0)
 			free(configs->texture->n_texture);
 	}
 }
@@ -80,11 +80,9 @@ char	**fill_texture_array(t_configs *configs, int *i_out)
 int	parse_texture(t_configs *configs)
 {
 	int		i;
-	int		j;
 	char	**info;
 
 	i = 0;
-	j = 0;
 	configs->texture->flags->no = 0; 
 	configs->texture->flags->so = 0;
 	configs->texture->flags->we = 0;

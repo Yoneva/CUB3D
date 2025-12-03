@@ -1,6 +1,6 @@
 CC = cc
-NAME = cub3d
-BONUS_NAME= cub3d_bonus
+NAME = cub3D
+BONUS_NAME= cub3D_bonus
 
 BUILD_DIR= build
 
@@ -17,10 +17,10 @@ HEADER_DIR = ../includes
 LIBFT_DIR= ../libs/Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MLX_DIR = ../libs/MLX42
+MLX_DIR = /Users/amsbai/MLX
 MLX_LIB = $(MLX_DIR)/build/libmlx42.a
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -L$(shell brew --prefix)/opt/glfw/lib
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 
@@ -62,3 +62,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

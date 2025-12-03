@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:48:24 by amsbai            #+#    #+#             */
-/*   Updated: 2025/12/01 15:55:32 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 12:25:43 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-# include "../libs/MLX42/include/MLX42/MLX42.h"
-# include "../libs/Libft/libft.h"
-# include "../libs/Libft/get_next_line/get_next_line.h"
+# include "MLX42/MLX42.h"
+# include "libft.h"
+# include "get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <math.h>
 # include <fcntl.h>
@@ -23,7 +23,8 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-typedef struct s_text_flags {
+typedef struct s_text_flags
+{
 	int	c;
 	int	f;
 	int	ea;
@@ -32,7 +33,8 @@ typedef struct s_text_flags {
 	int	no;
 }	t_text_flags;
 
-typedef struct s_textures {
+typedef struct s_textures
+{
 	char			*n_texture;
 	char			*s_texture;
 	char			*w_texture;
@@ -44,7 +46,8 @@ typedef struct s_textures {
 	t_text_flags	*flags;
 }	t_textures;
 
-typedef struct s_configs {
+typedef struct s_configs
+{
 	t_textures	*texture;
 	char		**map;
 	int			fd;
@@ -66,5 +69,6 @@ void	counting(char **map, int *rows, int *max_len);
 int		check_colors(t_configs *configs);
 char	*rm_spaces(char *input);
 int		check_lines(char **info, t_configs *configs, int i);
+int		rgb_to_int(int r, int g, int b);
 
 #endif

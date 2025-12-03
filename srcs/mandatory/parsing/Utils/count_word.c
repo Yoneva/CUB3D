@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   count_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 17:02:45 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/30 17:03:09 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 11:37:49 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../includes/parsing.h"
+#include "parsing.h"
 
 int	count_word(char *input)
 {

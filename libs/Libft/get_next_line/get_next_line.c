@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 22:01:07 by amsbai            #+#    #+#             */
-/*   Updated: 2025/09/09 17:12:05 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/12/02 10:25:01 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static char	*find(char **start, int fd)
 		}
 		buffer[bytesread] = 0;
 		tobefree = *start;
-		*start = ft_strjoinN(*start, buffer);
+		*start = ft_strjoin_2(*start, buffer);
 		free (tobefree);
 	}
 	return (newline);

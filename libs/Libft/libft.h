@@ -6,7 +6,7 @@
 /*   By: hasbayou <hasbayou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:25:51 by amsbai            #+#    #+#             */
-/*   Updated: 2025/11/18 04:06:08 by hasbayou         ###   ########.fr       */
+/*   Updated: 2025/11/29 09:14:51 by hasbayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+char	*get_next_line(int fd);
 int		ft_isalpha(int c);
 int		ft_islower(int c);
 int		ft_isascii(int c);
